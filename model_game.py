@@ -48,7 +48,7 @@ class Game:
 
 
 
-    def update_players_tile(self):
+    def _update_players_tile(self):
         """ updates tile for each player to next state """
 
         if self.player_list[self.cpi].current_tile != 0:
@@ -82,21 +82,21 @@ class Game:
 
 
 
-    def update_cpi(self):
+    def _update_cpi(self):
         """ Updates current player index i.e. player change """
         if not self.dice.current_face in [1,len(self.dice.faceValues)]:
             self.cpi = 0 if self.cpi + 1 >= len(self.player_list) else self.cpi + 1
 
 
-    def update_game_state(self):
+    def _update_game_state(self):
         """ Updates current game state like players position, winner etc """
 
-        self.update_players_tile()
-        self.update_cpi()
+        self._update_players_tile()
+        self._update_cpi()
 
 
     def roll_dice(self):
         """ Represents action of rolling the dice """
 
         self.dice.roll_dice()
-        self.update_game_state()
+        self._update_game_state()
