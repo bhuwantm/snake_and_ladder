@@ -8,12 +8,12 @@ class Dice():
     """ Represents game dice """
 
     def __init__(self, no_of_faces):
-        self.faceValues = [x + 1 for x in xrange(no_of_faces)]
+        self.face_values = [x + 1 for x in xrange(no_of_faces)]
         self.current_face = None
 
     def roll_dice(self):
         """ Roll the dice to change current-face value """
-        self.current_face = self.faceValues[random.randint(0, len(self.faceValues) - 1)]
+        self.current_face = self.face_values[random.randint(0, len(self.face_values) - 1)]
 
 
 class Player:
@@ -84,7 +84,7 @@ class Game:
 
     def _update_cpi(self):
         """ Updates current player index i.e. player change """
-        if not self.dice.current_face in [1,len(self.dice.faceValues)]:
+        if not self.dice.current_face in [1,len(self.dice.face_values)]:
             self.cpi = 0 if self.cpi + 1 >= len(self.player_list) else self.cpi + 1
 
 
